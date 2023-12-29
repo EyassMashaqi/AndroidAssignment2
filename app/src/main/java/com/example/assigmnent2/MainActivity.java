@@ -40,14 +40,14 @@ public class MainActivity extends AppCompatActivity {
          Login=findViewById(R.id.login);
          check=findViewById(R.id.Remember);
 
-        SharedPreferences sp = getSharedPreferences(PREFS_NAME, 0);
-        boolean rem=sp.getBoolean(PREF_REMEMBER,false);
+        SharedPreferences sp = getSharedPreferences(PREFS_NAME, 0);//setup sharedpref
+        boolean rem=sp.getBoolean(PREF_REMEMBER,false);//
         check.setChecked(rem);
-        if (rem){
-            String namesaved=sp.getString("username","username");
-            String passsaved= sp.getString("password","password");
-            username.setText(namesaved);
-            password.setText(passsaved);
+        if (rem){//to check rem if its check get saved items
+            String namesaved=sp.getString("username","username");//to get string of saved username
+            String passsaved= sp.getString("password","password");//to get string of saved password
+            username.setText(namesaved);//set text on edit text of saved value
+            password.setText(passsaved);//set text on edit text of saved value
         }
 
 
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
          signup.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-                 Intent intent=new Intent(MainActivity.this,CreateAcount.class);
+                 Intent intent=new Intent(MainActivity.this,CreateAcount.class);//to go create account page
                     startActivity(intent);
              }
          });

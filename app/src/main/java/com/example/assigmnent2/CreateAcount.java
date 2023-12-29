@@ -32,32 +32,32 @@ public class CreateAcount extends AppCompatActivity {
         create=findViewById(R.id.createbtn);
         back=findViewById(R.id.backbtn);
 
-        final SharedPreferences sp = getSharedPreferences(PREFS_NAME, 0);
+        final SharedPreferences sp = getSharedPreferences(PREFS_NAME, 0);//setup sharedpref
 
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String user=username.getText().toString();
-                String pass=password.getText().toString();
-                String pass2=confirmpassword.getText().toString();
+                String user=username.getText().toString();//to get text from edit text
+                String pass=password.getText().toString();//to get text from edit text
+                String pass2=confirmpassword.getText().toString();//to get text from edit text
 
-                if (user.isEmpty() || pass.isEmpty() || pass2.isEmpty() ){
-                    Toast.makeText(CreateAcount.this,"Field Empty",Toast.LENGTH_SHORT).show();
+                if (user.isEmpty() || pass.isEmpty() || pass2.isEmpty() ){//to check user text or pass text or pass2 text if empty or not
+                    Toast.makeText(CreateAcount.this,"Field Empty",Toast.LENGTH_SHORT).show();//to show error message cuz its empty
                     return;
 
                 }
-                if (pass.equals(pass2)){
+                if (pass.equals(pass2)){//if the pass =pass2 save the user and password at sharedpref
                     SharedPreferences.Editor editor= sp.edit();
-                    editor.putString("username",user);
-                    editor.putString("password",pass);
+                    editor.putString("username",user);//to save user name
+                    editor.putString("password",pass);//to save password
                     editor.apply();
                     Log.d("CreateAcount", "Account created - Username: " + user + ", Password: " + pass);
-                    Intent intent=new Intent(CreateAcount.this,MainActivity.class);
+                    Intent intent=new Intent(CreateAcount.this,MainActivity.class);//to go to login activity
                     startActivity(intent);
 
                 }
                 else {
-                    Toast.makeText(CreateAcount.this,"Password Doesnt Match",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateAcount.this,"Password Doesnt Match",Toast.LENGTH_SHORT).show();//error message
 
                 }
 
@@ -67,7 +67,7 @@ public class CreateAcount extends AppCompatActivity {
             }
         });
 
-        back.setOnClickListener(new View.OnClickListener() {
+        back.setOnClickListener(new View.OnClickListener() {//back button
             @Override
             public void onClick(View v) {
                 onBackPressed();
