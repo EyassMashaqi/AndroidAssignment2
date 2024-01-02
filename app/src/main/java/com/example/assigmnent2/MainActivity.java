@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 if(usernamelogin.equals(namesaved) && passlogin.equals(passsaved)){
                     Intent intent=new Intent(MainActivity.this,firstPage.class);
                     startActivity(intent);
+                    finish();
                 }
                 else {
                     Toast.makeText(MainActivity.this,"Incorrect Username or Password",Toast.LENGTH_SHORT).show();
